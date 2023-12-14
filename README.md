@@ -1,32 +1,34 @@
 # bugzilla-testlink-docker-compose
 
-Docker Compose - Bugzilla and TestLink
+How to install Docker
 
-TestLink is a web based application to manage manual tests along with software life cycle. Tests may vary from simple steps to more evolved process, but each will provide simple steps to follow.
+Visit Docker and get Docker up and running on your system. Optionally you could install Docker Compose to help with setting up a new container.
 
-Prerequisites
+How to build Bugzilla Docker image
 
-Docker Engine 18.06.0+
+To build a fresh image, just change to the directory containing the checked out files and run the below command:
 
-Linux: Follow all the steps present in the official documentation
-Docker Compose 1.22.0+
+$ docker-compose build
 
-Follow all the steps present in the official documentation
-Set the environment variables
+How to start Bugzilla and TestLink Docker image
 
-The file .env.example contains all the environment variables required.
+To start a new container (or rerun your last container) you simply do:
 
-Copy and paste with the file .env.example with the name .env to make the Docker Compose use the environment variables defined in this file:
+$ docker-compose up
 
-cp .env.example .env
-After that, setup the variables according to specific requirements of each deployment.
+This will stay in the foreground and you will see the output from supervisord. You can use the -d option to run the container in the background.
 
-Building and Deploying the containers
+To stop, start or remove the container that was created from the last run, you can do:
 
-docker-compose up --build
-It will build the containers and run the platform as specified in the file docker-compose.yml, opening a log screen with the logs of all the services started.
+$ docker-compose stop
+$ docker-compose start
+$ docker-compose rm
 
-Stopping the execution
+How to access the Bugzilla and TestLink container
+
+http://localhost/bugzilla
+
+http://localhost:83/login.php?note=logout&viewer=
 
 If you are still in the log screen press Ctrl + C just one time for graceful stop, two times to force stop
 
