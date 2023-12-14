@@ -4,6 +4,14 @@ How to install Docker
 
 Visit Docker and get Docker up and running on your system. Optionally you could install Docker Compose to help with setting up a new container.
 
+Remember to create the named volumes before running your services:
+
+$docker volume create bugzilla-db-data
+
+$docker volume create tl-mariadb-data
+
+$docker volume create tl-testlink-data
+
 How to build Bugzilla Docker image
 
 To build a fresh image, just change to the directory containing the checked out files and run the below command:
